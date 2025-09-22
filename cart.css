@@ -3,49 +3,66 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #fff8f8;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 header {
   background: linear-gradient(135deg, #ff4c4c, #ff6f61);
   color: white;
   text-align: center;
-  padding: 20px 0;
+  padding: 30px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInDown 1s ease;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 header p {
-  margin: 5px 0 15px;
+  margin: 10px 0 0;
   font-size: 1.1rem;
 }
 
 nav {
-  margin-top: 10px;
+  background: #fff;
+  border-bottom: 2px solid #ff6f61;
+  animation: fadeIn 1s ease;
 }
 
-nav a {
-  margin: 0 10px;
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 0;
+}
+
+nav ul li {
+  margin: 0 18px;
+}
+
+nav ul li a {
   text-decoration: none;
-  color: white;
+  color: #333;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
 
-nav a:hover {
-  color: #ffe4e4;
+nav ul li a:hover {
+  color: #ff4c4c;
+  transform: scale(1.1);
 }
 
 .cart {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 40px auto;
   background: #fff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  animation: fadeInUp 1.2s ease;
 }
 
 .cart h2 {
@@ -97,10 +114,26 @@ button:hover {
 }
 
 footer {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
   background: #ff4c4c;
   color: white;
   padding: 15px;
   font-size: 0.9rem;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
 }
