@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - Klubnika.kz</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <header>
+    <h1>Klubnika</h1>
+    <p>Online fresh grocery store</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="contact.html">Contact</a>
+      <a href="delivery.html">Delivery</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cart">
+      <h2>Your Shopping Cart</h2>
+      <form action="index.html" method="get">
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Price (per unit)</th>
+            <th>Quantity</th>
+          </tr>
+          <tr>
+            <td>Fresh Strawberries</td>
+            <td>700 KZT</td>
+            <td><input type="number" name="qty1" value="0" min="0"></td>
+          </tr>
+          <tr>
+            <td>Strawberry Basket</td>
+            <td>2500 KZT</td>
+            <td><input type="number" name="qty2" value="0" min="0"></td>
+          </tr>
+          <tr>
+            <td>Strawberry Smoothie</td>
+            <td>1200 KZT</td>
+            <td><input type="number" name="qty3" value="0" min="0"></td>
+          </tr>
+        </table>
+        <button type="submit">Submit Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Team Members: Marsel, Armat, Aldiyar</p>
+  </footer>
+</body>
+</html>
