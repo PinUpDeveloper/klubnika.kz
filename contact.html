@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>klubnika.kz - Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Klubnika</h1>
+    <p>Online fresh grocery store</p>
+  </header>
+
+  <nav class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+    </ul>
+    <span class="nav-underline"></span>
+  </nav>
+
+  <section class="hero" data-reveal>
+    <div class="hero-inner">
+      <h2>Get in Touch</h2>
+      <p>Questions about an order or partnership? Send us a message — we respond fast.</p>
+      <a class="btn btn-ghost" href="#contact-form">Write a message</a>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact-form" data-reveal>
+    <div class="grid">
+      <form class="card form" novalidate>
+        <div class="field">
+          <input id="name" name="name" type="text" required />
+          <label for="name">Name</label>
+          <small class="hint">Your full name</small>
+        </div>
+        <div class="field">
+          <input id="phone" name="phone" type="tel" required pattern="^\+?[0-9 ()-]{9,}$" />
+          <label for="phone">Phone</label>
+          <small class="hint">e.g. +7 7xx xxx xx xx</small>
+        </div>
+        <div class="field">
+          <input id="email" name="email" type="email" required />
+          <label for="email">E-mail</label>
+          <small class="hint">We'll never share your email</small>
+        </div>
+        <div class="field select">
+          <select id="topic" name="topic" required>
+            <option value="" disabled selected>Select a topic</option>
+            <option value="order">Order question</option>
+            <option value="delivery">Delivery</option>
+            <option value="cooperation">Cooperation</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="topic">Topic</label>
+        </div>
+        <div class="field">
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <label for="message">Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary ripple">Send</button>
+      </form>
+      <aside class="info">
+        <div class="card" data-reveal>
+          <h3>Phone</h3>
+          <p><a href="tel:+77000000000">+7 (700) 000-00-00</a></p>
+        </div>
+        <div class="card" data-reveal>
+          <h3>E-mail</h3>
+          <p><a href="mailto:support@klubnika.kz">support@klubnika.kz</a></p>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Support Hours</h3>
+          <p>Mon–Sun: 09:00–21:00</p>
+        </div>
+        <div class="card" data-reveal>
+          <h3>Social</h3>
+          <p><a href="#">Instagram</a> • <a href="#">Telegram</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <p>Team Members: Marsel, Armat, Aldiyar</p>
+  </footer>
+
+  <div class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <script>
+    const nav=document.querySelector('.site-nav');const underline=document.querySelector('.nav-underline');const setUnderline=(el)=>{const r=el.getBoundingClientRect();const nr=nav.getBoundingClientRect();underline.style.width=r.width+'px';underline.style.transform=`translateX(${r.left-nr.left}px)`};const current=document.querySelector('.site-nav a.active');if(current)setUnderline(current);document.querySelectorAll('.site-nav a').forEach(a=>{a.addEventListener('mouseenter',()=>setUnderline(a))});nav.addEventListener('mouseleave',()=>current&&setUnderline(current));const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('reveal-in');io.unobserve(e.target)}})},{threshold:.08});document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));document.addEventListener('click',(e)=>{const btn=e.target.closest('.ripple');if(!btn)return;const circle=document.createElement('span');const d=Math.max(btn.clientWidth,btn.clientHeight);circle.style.width=circle.style.height=d+'px';const rect=btn.getBoundingClientRect();circle.style.left=(e.clientX-rect.left-d/2)+'px';circle.style.top=(e.clientY-rect.top-d/2)+'px';circle.className='ripple-circle';btn.appendChild(circle);setTimeout(()=>circle.remove(),600)});const form=document.querySelector('form.form');const toast=document.querySelector('.toast');form.addEventListener('submit',(e)=>{e.preventDefault();if(!form.checkValidity()){form.reportValidity();return;}toast.textContent='Thanks! Your message has been sent.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200);form.reset()});
+  </script>
+</body>
+</html>
