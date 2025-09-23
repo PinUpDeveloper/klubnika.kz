@@ -1,125 +1,80 @@
-:root {
-  --bg: #fff8f8;
-  --text: #333;
-  --brand-1: #ff4c4c;
-  --brand-2: #ff6f61;
-  --panel: #ffffff;
-  --panel-2: #fffafa;
-  --stroke: #ffd5d5;
-  --shadow: 0 12px 34px rgba(0,0,0,.09);
-  --radius: 14px;
-  --speed: .25s;
-}
-
-* { box-sizing: border-box; }
-
 body {
   margin: 0;
-  font-family: 'Segoe UI', system-ui, Arial, sans-serif;
-  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff8f8;
+  color: #333;
   line-height: 1.7;
-  background: var(--bg);
 }
 
-/* --- HEADER --- */
-.site-header {
-  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
-  color: #fff;
+header {
+  background: linear-gradient(135deg, #ff4c4c, #ff6f61);
+  color: white;
   text-align: center;
-  padding: 34px 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  animation: fadeDown .9s ease both;
+  padding: 30px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInDown 1s ease;
 }
 
-.site-header h1 {
+header h1 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
 }
 
-.site-header p {
-  margin: 8px 0 0;
+header p {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
 }
 
-/* --- NAV --- */
-.site-nav {
+nav {
   background: #fff;
-  border-bottom: 2px solid var(--brand-2);
-  position: sticky;
-  top: 96px;
-  z-index: 9;
+  border-bottom: 2px solid #ff6f61;
+  animation: fadeIn 1s ease;
 }
 
-.site-nav ul {
+nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 26px;
   margin: 0;
-  padding: 12px 10px;
-  position: relative;
+  padding: 12px 0;
 }
 
-.site-nav a {
+nav ul li {
+  margin: 0 18px;
+}
+
+nav ul li a {
   text-decoration: none;
-  color: var(--text);
-  font-weight: 700;
-  display: inline-block;
-  padding: 6px 2px;
-  transition: transform var(--speed), color var(--speed);
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.site-nav a:hover {
-  color: var(--brand-1);
-  transform: translateY(-1px);
+nav ul li a:hover {
+  color: #ff4c4c;
+  transform: scale(1.1);
 }
 
-.site-nav a.active {
-  color: var(--brand-1);
-}
-
-.nav-underline {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
-  width: 0;
-  transition: transform .35s, width .35s;
-}
-
-/* --- CART WRAPPER --- */
-.wrap {
-  max-width: 1060px;
-  margin: 42px auto;
-  padding: 0 18px;
+nav ul li a.active {
+  color: #ff4c4c;
 }
 
 .cart {
-  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
-  border: 1.6px solid var(--stroke);
-  border-radius: var(--radius);
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
   padding: 30px;
-  box-shadow: var(--shadow);
-  transition: transform .25s, box-shadow .25s, border-color .25s;
-  animation: fadeInUp .9s ease both;
-}
-
-.cart:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 44px rgba(255,76,76,.22);
-  border-color: #ffc1c1;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  animation: fadeInUp 1.2s ease;
 }
 
 .cart h2 {
   text-align: center;
-  color: var(--brand-1);
+  color: #ff4c4c;
   margin-bottom: 20px;
 }
 
-/* --- TABLE --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -136,11 +91,10 @@ th, td {
 }
 
 th {
-  background: var(--brand-2);
+  background: #ff6f61;
   color: white;
 }
 
-/* --- INPUTS & BUTTONS --- */
 input[type="number"] {
   width: 60px;
   padding: 5px;
@@ -150,37 +104,40 @@ button {
   display: block;
   margin: 0 auto;
   padding: 10px 20px;
-  background: var(--brand-1);
+  background: #ff4c4c;
   border: none;
   border-radius: 6px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background var(--speed);
+  transition: background 0.3s;
 }
 
 button:hover {
   background: #e63b3b;
 }
 
-/* --- FOOTER --- */
 footer {
-  margin: 40px 0 0;
+  margin-top: 40px;
   text-align: center;
-  background: var(--brand-1);
-  color: #fff;
-  padding: 16px;
+  background: #ff4c4c;
+  color: white;
+  padding: 15px;
   font-size: 0.9rem;
   animation: fadeInUp 1s ease;
 }
 
-/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 @keyframes fadeInUp {
   from {opacity: 0; transform: translateY(30px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes fadeDown {
-  from {opacity: 0; transform: translateY(-24px);}
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-30px);}
   to {opacity: 1; transform: translateY(0);}
 }
