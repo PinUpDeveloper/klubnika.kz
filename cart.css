@@ -1,80 +1,125 @@
+:root {
+  --bg: #fff8f8;
+  --text: #333;
+  --brand-1: #ff4c4c;
+  --brand-2: #ff6f61;
+  --panel: #ffffff;
+  --panel-2: #fffafa;
+  --stroke: #ffd5d5;
+  --shadow: 0 12px 34px rgba(0,0,0,.09);
+  --radius: 14px;
+  --speed: .25s;
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff8f8;
-  color: #333;
+  font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  color: var(--text);
   line-height: 1.7;
+  background: var(--bg);
 }
 
-header {
-  background: linear-gradient(135deg, #ff4c4c, #ff6f61);
-  color: white;
+/* --- HEADER --- */
+.site-header {
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  color: #fff;
   text-align: center;
-  padding: 30px 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  animation: fadeInDown 1s ease;
+  padding: 34px 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: fadeDown .9s ease both;
 }
 
-header h1 {
+.site-header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
 }
 
-header p {
-  margin: 10px 0 0;
-  font-size: 1.1rem;
+.site-header p {
+  margin: 8px 0 0;
 }
 
-nav {
+/* --- NAV --- */
+.site-nav {
   background: #fff;
-  border-bottom: 2px solid #ff6f61;
-  animation: fadeIn 1s ease;
+  border-bottom: 2px solid var(--brand-2);
+  position: sticky;
+  top: 96px;
+  z-index: 9;
 }
 
-nav ul {
+.site-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  gap: 26px;
   margin: 0;
-  padding: 12px 0;
+  padding: 12px 10px;
+  position: relative;
 }
 
-nav ul li {
-  margin: 0 10px;
-}
-
-nav ul li a {
-  display: inline-block;
-  padding: 8px 16px;
+.site-nav a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  color: var(--text);
+  font-weight: 700;
+  display: inline-block;
+  padding: 6px 2px;
+  transition: transform var(--speed), color var(--speed);
 }
 
-nav ul li a:hover {
-  background: #ff4c4c;
-  color: #fff;
-  transform: scale(1.05);
+.site-nav a:hover {
+  color: var(--brand-1);
+  transform: translateY(-1px);
+}
+
+.site-nav a.active {
+  color: var(--brand-1);
+}
+
+.nav-underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  width: 0;
+  transition: transform .35s, width .35s;
+}
+
+/* --- CART WRAPPER --- */
+.wrap {
+  max-width: 1060px;
+  margin: 42px auto;
+  padding: 0 18px;
 }
 
 .cart {
-  max-width: 800px;
-  margin: 40px auto;
-  background: #fff;
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.86));
+  border: 1.6px solid var(--stroke);
+  border-radius: var(--radius);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  animation: fadeInUp 1.2s ease;
+  box-shadow: var(--shadow);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  animation: fadeInUp .9s ease both;
+}
+
+.cart:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(255,76,76,.22);
+  border-color: #ffc1c1;
 }
 
 .cart h2 {
   text-align: center;
-  color: #ff4c4c;
+  color: var(--brand-1);
   margin-bottom: 20px;
 }
 
+/* --- TABLE --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -91,10 +136,11 @@ th, td {
 }
 
 th {
-  background: #ff6f61;
+  background: var(--brand-2);
   color: white;
 }
 
+/* --- INPUTS & BUTTONS --- */
 input[type="number"] {
   width: 60px;
   padding: 5px;
@@ -104,40 +150,37 @@ button {
   display: block;
   margin: 0 auto;
   padding: 10px 20px;
-  background: #ff4c4c;
+  background: var(--brand-1);
   border: none;
   border-radius: 6px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background var(--speed);
 }
 
 button:hover {
   background: #e63b3b;
 }
 
+/* --- FOOTER --- */
 footer {
-  margin-top: 40px;
+  margin: 40px 0 0;
   text-align: center;
-  background: #ff4c4c;
-  color: white;
-  padding: 15px;
+  background: var(--brand-1);
+  color: #fff;
+  padding: 16px;
   font-size: 0.9rem;
   animation: fadeInUp 1s ease;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
+/* --- ANIMATIONS --- */
 @keyframes fadeInUp {
   from {opacity: 0; transform: translateY(30px);}
   to {opacity: 1; transform: translateY(0);}
 }
 
-@keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-30px);}
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-24px);}
   to {opacity: 1; transform: translateY(0);}
 }
