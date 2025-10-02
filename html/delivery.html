@@ -136,12 +136,22 @@
           const x = (e.clientX - r.left) / r.width - 0.5;
           const y = (e.clientY - r.top) / r.height - 0.5;
           card.style.transform = `rotateX(${-y * 6}deg) rotateY(${
+<<<<<<< HEAD
             x
         }
       } * 6}deg)`;
+=======
+            x}
+                  } * 6}deg)`;
+>>>>>>> f96777d05bd382c0805c8014b72a4a3a8d018714
         });
         card.addEventListener("mouseleave", () => {
           card.style.transform = "rotateX(0) rotateY(0)";
         });
       });
+<<<<<<< HEAD
     </script>
+=======
+    </script>
+          
+>>>>>>> f96777d05bd382c0805c8014b72a4a3a8d018714
