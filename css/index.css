@@ -154,12 +154,6 @@ footer {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.feature img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 15px;
-}
-
 .feature h3 {
   margin-bottom: 10px;
   color: #333;
@@ -175,27 +169,12 @@ footer {
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  padding: 20px;
-}
-
-.gallery .box {
-  background: #ffb3b3;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120px;
-  border-radius: 8px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.gallery .box:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+.feature img {
+  width: 250px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
